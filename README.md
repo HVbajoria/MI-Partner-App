@@ -39,3 +39,18 @@ The following tech stacks can be used in order to build the application and usin
 * **Microsoft Azure** services to host the app and get the IT infrastructure required.
 * **Microsoft Azure Computer Vision Services** to take get the power of computer vision models.
 * **MongoDB database** to store and manage the data which is uploaded, processed in relational databases.
+
+## Methodology :
+The methodology for the store executive will owrk in the foillowing way to allow the smooth flow of the steps and allow him/her to give the best customer experience to its customers along with the opportunities to increase its sales as much as possible by providsing the right and most-worked suggestions.
+
+For adding products into the cart of the customer with in-store purchase the worlflow is as follows :
+<p align="center">
+<img src="https://github.com/HVbajoria/MI-Partner-App/blob/main/Methodology/Adding%20Products.png" width="250" alt="accessibility text" >
+  </p>
+  </br>
+  
+For the whole consumerjourney from entering the store to being a part of the MI community works in the following manner :
+<p>
+<img src="https://github.com/HVbajoria/MI-Partner-App/blob/main/Methodology/CompleteTransaction.png" width="250" alt="accessibility text" >
+  </p>
+</br>
