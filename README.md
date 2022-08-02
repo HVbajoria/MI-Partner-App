@@ -45,12 +45,12 @@ The methodology for the store executive will owrk in the foillowing way to allow
 
 For adding products into the cart of the customer with in-store purchase the worlflow is as follows :
 <p align="center">
-<img src="https://github.com/HVbajoria/MI-Partner-App/blob/main/Methodology/Adding%20Products.png" width="250" alt="accessibility text" >
+<img src="https://github.com/HVbajoria/MI-Partner-App/blob/main/Methodology/Adding%20Products.png" width="520" alt="accessibility text" >
   </p>
   </br>
   
 For the whole consumerjourney from entering the store to being a part of the MI community works in the following manner :
-<p>
-<img src="https://github.com/HVbajoria/MI-Partner-App/blob/main/Methodology/CompleteTransaction.png" width="250" alt="accessibility text" >
+<p align="center">
+<img src="https://github.com/HVbajoria/MI-Partner-App/blob/main/Methodology/CompleteTransaction.png" width="580" alt="accessibility text" >
   </p>
 </br>
