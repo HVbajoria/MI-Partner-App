@@ -55,7 +55,7 @@ For the whole consumer journey from entering the store to being a part of the MI
   </p>
 </br>
 
-## Demo Video Link : 
+## Demo Video Link : https://youtu.be/lBKfrUrDeFY
 
 ## Social Impact / Novelty :
 This application will ease the billing process across all Mi outlets by allowing the store operators to process customer orders in real-time through various devices thereby increasing speed and efficiency and ultimately increasing customer satisfaction with security and trust bringing in the culture of the organization to the consumer.
