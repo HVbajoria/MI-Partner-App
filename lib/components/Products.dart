@@ -71,7 +71,7 @@ class _ProductsState extends State<Products> {
     return GridView.builder(
         itemCount: product_list.length,
         gridDelegate:
-            new SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+            const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
         itemBuilder: (BuildContext context, int index) {
           return Padding(
             padding: const EdgeInsets.all(3.0),
@@ -92,7 +92,7 @@ class Single_prod extends StatelessWidget {
   final prod_old_price;
   final prod_price;
 
-  Single_prod({
+  const Single_prod({
     this.prod_name,
     this.prod_old_price,
     this.prod_picture,
@@ -108,7 +108,7 @@ class Single_prod extends StatelessWidget {
         child: InkWell(
           onTap: () => Navigator.of(context).push(MaterialPageRoute(
             // passing the values of the product to the product details page
-              builder: (context) => new ProductDetails(
+              builder: (context) => ProductDetails(
                 product_detail_name: prod_name,
                 product_detail_new_price: prod_price,
                 product_detail_old_price: prod_old_price,
@@ -119,16 +119,16 @@ class Single_prod extends StatelessWidget {
               footer: Container(
                 height: 95.0,
                 color: Colors.white,
-                child: Expanded(
+
                   child: Row(
                     children: <Widget>[
                       Expanded(
-                        child: Text(prod_name, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14.0),),
+                        child: Text(prod_name, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 14.0),),
                       ),
-                      Text("Rs"+ prod_price, style: TextStyle(color: Colors.red, fontSize: 14.0, fontWeight: FontWeight.w600),),
+                      Text("Rs"+ prod_price, style: const TextStyle(color: Colors.red, fontSize: 14.0, fontWeight: FontWeight.w600),),
                     ]
                   )
-                ),
+
               ),
               child: Image.asset(
                 prod_picture,

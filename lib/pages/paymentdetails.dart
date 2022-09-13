@@ -5,7 +5,7 @@ import '../db/user.dart';
 
 class PaymentDetails extends StatefulWidget {
   final cart;
-  PaymentDetails({
+  const PaymentDetails({
     this.cart,
 });
 
@@ -15,12 +15,12 @@ class PaymentDetails extends StatefulWidget {
 
 class _PaymentDetailsState extends State<PaymentDetails> {
   final _formKey = GlobalKey<FormState>();
-  UserServices _userServices = UserServices();
-  TextEditingController _emailTextController = TextEditingController();
-  TextEditingController _addressController = TextEditingController();
-  TextEditingController _phoneController = TextEditingController();
-  TextEditingController _nameTextController = TextEditingController();
-  TextEditingController _deliveryController = TextEditingController();
+  final UserServices _userServices = UserServices();
+  final TextEditingController _emailTextController = TextEditingController();
+  final TextEditingController _addressController = TextEditingController();
+  final TextEditingController _phoneController = TextEditingController();
+  final TextEditingController _nameTextController = TextEditingController();
+  final TextEditingController _deliveryController = TextEditingController();
   late String store_name;
   bool hidePass = true;
   bool hidePass2 = true;
@@ -33,7 +33,7 @@ class _PaymentDetailsState extends State<PaymentDetails> {
       appBar: AppBar(
         backgroundColor: Colors.redAccent,
         centerTitle: true,
-        title: Text(
+        title: const Text(
           "Checkout",
           style: TextStyle(color: Colors.white),
         ),
@@ -43,8 +43,8 @@ class _PaymentDetailsState extends State<PaymentDetails> {
         children: <Widget>[
           ListView(
             children: <Widget>[
-              Padding(
-                padding: const EdgeInsets.fromLTRB(10.0, 28.0, 10.0, 25.0),
+              const Padding(
+                padding: EdgeInsets.fromLTRB(10.0, 28.0, 10.0, 25.0),
                 child: Text("Enter Details",
                     textAlign: TextAlign.center,
                     style: TextStyle(
@@ -69,7 +69,7 @@ class _PaymentDetailsState extends State<PaymentDetails> {
                             child: Padding(
                               padding: const EdgeInsets.only(left: 12.0),
                               child: TextFormField(
-                                decoration: InputDecoration(
+                                decoration: const InputDecoration(
                                   labelText: "Customer Name *",
                                   hintText: "His/Her good name",
                                   icon: Icon(Icons.person),
@@ -80,8 +80,9 @@ class _PaymentDetailsState extends State<PaymentDetails> {
                                 validator: (value) {
                                   if (value == null) {
                                     return "The name cannot be empty";
-                                  } else
+                                  } else {
                                     return null;
+                                  }
                                 },
                               ),
                             ),
@@ -96,7 +97,7 @@ class _PaymentDetailsState extends State<PaymentDetails> {
                             child: Padding(
                               padding: const EdgeInsets.only(left: 12.0),
                               child: TextFormField(
-                                decoration: InputDecoration(
+                                decoration: const InputDecoration(
                                   labelText: "Email *",
                                   hintText: "someone@email.com",
                                   icon: Icon(Icons.email),
@@ -106,12 +107,13 @@ class _PaymentDetailsState extends State<PaymentDetails> {
                                 controller: _emailTextController,
                                 validator: (value) {
                                   if (value != null) {
-                                    RegExp regex = new RegExp(
+                                    RegExp regex = RegExp(
                                         r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$');
-                                    if (!regex.hasMatch(value))
+                                    if (!regex.hasMatch(value)) {
                                       return 'Please enter correct email address';
-                                    else
+                                    } else {
                                       return null;
+                                    }
                                   }
                                 },
                               ),
@@ -128,7 +130,7 @@ class _PaymentDetailsState extends State<PaymentDetails> {
                               padding: const EdgeInsets.only(left: 12.0),
                               child: ListTile(
                                 title: TextFormField(
-                                  decoration: InputDecoration(
+                                  decoration: const InputDecoration(
                                     labelText: "Address *",
                                     hintText: "Street name, City, Country",
                                     icon: Icon(Icons.location_city),
@@ -139,8 +141,9 @@ class _PaymentDetailsState extends State<PaymentDetails> {
                                   validator: (value) {
                                     if (value == null) {
                                       return "The address cannot be empty";
-                                    } else
+                                    } else {
                                       return null;
+                                    }
                                   },
                                 ),
                               ),
@@ -157,7 +160,7 @@ class _PaymentDetailsState extends State<PaymentDetails> {
                               padding: const EdgeInsets.only(left: 12.0),
                               child: ListTile(
                                 title: TextFormField(
-                                  decoration: InputDecoration(
+                                  decoration: const InputDecoration(
                                     labelText: "Phone number *",
                                     hintText: "+91456372231",
                                     icon: Icon(Icons.phone),
@@ -168,8 +171,9 @@ class _PaymentDetailsState extends State<PaymentDetails> {
                                   validator: (value) {
                                     if (value == null) {
                                       return "The phone number cannot be empty";
-                                    } else
+                                    } else {
                                       return null;
+                                    }
                                   },
                                 ),
                               ),
@@ -186,7 +190,7 @@ class _PaymentDetailsState extends State<PaymentDetails> {
                               padding: const EdgeInsets.only(left: 12.0),
                               child: ListTile(
                                 title: TextFormField(
-                                  decoration: InputDecoration(
+                                  decoration: const InputDecoration(
                                     labelText: "Delivery Mode *",
                                     hintText: "Home Delivery/ Pickup",
                                     icon: Icon(Icons.delivery_dining),
@@ -197,8 +201,9 @@ class _PaymentDetailsState extends State<PaymentDetails> {
                                   validator: (value) {
                                     if (value == null) {
                                       return "The Delivery Mode cannot be empty";
-                                    } else
+                                    } else {
                                       return null;
+                                    }
                                   },
                                 ),
                               ),
@@ -217,7 +222,7 @@ class _PaymentDetailsState extends State<PaymentDetails> {
                                   handleCheck();
                                 },
                                 minWidth: MediaQuery.of(context).size.width,
-                                child: Text(
+                                child: const Text(
                                   "Payment",
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
@@ -243,7 +248,7 @@ class _PaymentDetailsState extends State<PaymentDetails> {
   void handleCheck() {
     FormState? formState = _formKey.currentState;
 
-    if (formState?.validate() != null)
+    if (formState?.validate() != null) {
       Navigator.of(context).push(MaterialPageRoute(
         // passing the values of the product to the product details page
           builder: (context) => Payment(
@@ -254,5 +259,6 @@ class _PaymentDetailsState extends State<PaymentDetails> {
             customer_address: _addressController.text,
             delivery: _deliveryController.text,
           )));
+    }
   }
 }

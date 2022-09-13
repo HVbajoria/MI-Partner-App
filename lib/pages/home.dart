@@ -20,11 +20,11 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
 
-    Widget image_carousel= new Container(
+    Widget image_carousel= Container(
       height: 150.0,
       child: Carousel(
         boxFit: BoxFit.cover,
-        images: [
+        images: const [
           AssetImage('images/accessories.jpg'),
           AssetImage('images/watch.jpeg'),
           AssetImage('images/tv.jpg'),
@@ -43,29 +43,29 @@ class _HomePageState extends State<HomePage> {
         appBar: AppBar(
             elevation: 0.3,
             backgroundColor: Colors.deepOrangeAccent,
-            title: Text('MI Partner App'),
+            title: const Text('MI Partner App'),
             actions: <Widget>[
-              IconButton(icon: Icon(Icons.search, color: Colors.white), onPressed: (){}),
-              IconButton(icon: Icon(Icons.shopping_cart, color: Colors.white), onPressed: (){
+              IconButton(icon: const Icon(Icons.search, color: Colors.white), onPressed: (){}),
+              IconButton(icon: const Icon(Icons.shopping_cart, color: Colors.white), onPressed: (){
                 Navigator.push(context, MaterialPageRoute(builder: (context)=> new Cart_products()));
               })
             ]
         ),
 
         drawer: Drawer(
-          child: new ListView(
+          child: ListView(
             children: <Widget>[
               // header of drawer
-              new UserAccountsDrawerHeader(
-                  accountName: Text('Harshavardhan Bajoria'),
-                  accountEmail:Text('hvbajoria@gmail.com'),
+              UserAccountsDrawerHeader(
+                  accountName: const Text('Harshavardhan Bajoria'),
+                  accountEmail:const Text('hvbajoria@gmail.com'),
                   currentAccountPicture: GestureDetector(
-                    child: new CircleAvatar(
+                    child: const CircleAvatar(
                       backgroundColor: Colors.grey,
                       child: Icon(Icons.person, color: Colors.white),
                     ),
                   ),
-                  decoration: new BoxDecoration(
+                  decoration: const BoxDecoration(
                       color: Colors.red
                   )
               ),
@@ -74,7 +74,7 @@ class _HomePageState extends State<HomePage> {
                 onTap: (){
                   Navigator.push(context, MaterialPageRoute(builder: (context)=> new HomePage()));
                 },
-                child: ListTile(
+                child: const ListTile(
                   title: Text('Home Page'),
                   leading: Icon(Icons.home, color: Colors.blueGrey,),
                 ),
@@ -83,7 +83,7 @@ class _HomePageState extends State<HomePage> {
                 onTap: (){
                   Navigator.push(context, MaterialPageRoute(builder: (context)=> new ComingSoon()));
                 },
-                child: ListTile(
+                child: const ListTile(
                   title: Text('My Account'),
                   leading: Icon(Icons.person, color: Colors.blueGrey,),
                 ),
@@ -92,7 +92,7 @@ class _HomePageState extends State<HomePage> {
                 onTap: (){
                   Navigator.push(context, MaterialPageRoute(builder: (context)=> new ComingSoon()));
                 },
-                child: ListTile(
+                child: const ListTile(
                   title: Text('My Orders'),
                   leading: Icon(Icons.shopping_basket, color: Colors.blueGrey,),
                 ),
@@ -101,7 +101,7 @@ class _HomePageState extends State<HomePage> {
                 onTap: (){
                   Navigator.push(context, MaterialPageRoute(builder: (context)=> new Cart_products()));
                 },
-                child: ListTile(
+                child: const ListTile(
                   title: Text('Shopping Cart'),
                   leading: Icon(Icons.shopping_cart, color: Colors.blueGrey,),
                 ),
@@ -110,19 +110,19 @@ class _HomePageState extends State<HomePage> {
                 onTap: (){
                   Navigator.push(context, MaterialPageRoute(builder: (context)=> new ComingSoon()));
                 },
-                child: ListTile(
+                child: const ListTile(
                   title: Text('Favorites'),
                   leading: Icon(Icons.favorite, color: Colors.pink),
                 ),
               ),
 
-              Divider(),
+              const Divider(),
 
               InkWell(
                 onTap: (){
                   Navigator.push(context, MaterialPageRoute(builder: (context)=> new ComingSoon()));
                 },
-                child: ListTile(
+                child: const ListTile(
                   title: Text('Settings'),
                   leading: Icon(Icons.settings, color: Colors.black,),
                 ),
@@ -131,7 +131,7 @@ class _HomePageState extends State<HomePage> {
                 onTap: (){
                   Navigator.push(context, MaterialPageRoute(builder: (context)=> new About()));
                 },
-                child: ListTile(
+                child: const ListTile(
                   title: Text('About'),
                   leading: Icon(Icons.help, color: Colors.blueAccent,),
                 ),
@@ -146,17 +146,17 @@ class _HomePageState extends State<HomePage> {
             image_carousel,
 
             // padding widget
-            Padding(padding: const EdgeInsets.all(25.0),
-              child: new Text('Categories', style: TextStyle(fontSize: 18.0)),),
+            const Padding(padding: EdgeInsets.all(25.0),
+              child: Text('Categories', style: TextStyle(fontSize: 18.0)),),
 
             // Horizontal list view begins here
             HorizontalList(),
 
-            new Padding(padding: const EdgeInsets.all(35.0),
+            const Padding(padding: EdgeInsets.all(35.0),
               child: Text('Bestsellers', style: TextStyle(fontSize: 18.0)),),
 
             // grid view
-            Flexible(
+            const Flexible(
               child: Products(),
             )
           ],

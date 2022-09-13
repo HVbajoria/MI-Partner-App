@@ -47,14 +47,14 @@ class _PaymentState extends State<Payment> {
       appBar: AppBar(
         backgroundColor: Colors.redAccent,
         centerTitle: true,
-        title: Text("Payment", style: TextStyle(color: Colors.white),),
+        title: const Text("Payment", style: TextStyle(color: Colors.white),),
         elevation: 0.8,
       ),
       body: Column(
 
         children: <Widget>[
-          Padding(
-            padding: const EdgeInsets.all(25.0),
+          const Padding(
+            padding: EdgeInsets.all(25.0),
             child: Text("Choose The Payment Method", style: TextStyle(
                 fontWeight: FontWeight.bold,
                 color: Colors.black,
@@ -73,15 +73,15 @@ class _PaymentState extends State<Payment> {
                 },
                 ),
                 title: Text(Paymentlables[index],
-                    style: TextStyle(color: Colors.black)),
+                    style: const TextStyle(color: Colors.black)),
                 trailing: Icon(Payemnticons[index], color: Colors.blueGrey,),
               );
             }, separatorBuilder: (context, index) {
-              return Divider();
+              return const Divider();
             }, itemCount: Paymentlables.length),
           ),
           Padding(
-            padding: EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 20.0),
+            padding: const EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 20.0),
 
             child: Material(
                 borderRadius: BorderRadius.circular(50.0),
@@ -95,7 +95,7 @@ class _PaymentState extends State<Payment> {
                       .of(context)
                       .size
                       .width,
-                  child: Text("Payment Received", textAlign: TextAlign.center,
+                  child: const Text("Payment Received", textAlign: TextAlign.center,
                     style: TextStyle(color: Colors.white,
                       fontWeight: FontWeight.bold,
                       fontSize: 16.0,),
@@ -107,7 +107,6 @@ class _PaymentState extends State<Payment> {
   }
 
   void handleCheck() {
-    print(Paymentlables[value]);
     Fluttertoast.showToast(msg: "Payment Successful");
       Navigator.of(context).push(MaterialPageRoute(
         // passing the values of the product to the product details page

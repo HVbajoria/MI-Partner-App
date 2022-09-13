@@ -15,11 +15,11 @@ class SignUp extends StatefulWidget {
 class _SignUpState extends State<SignUp> {
   final FirebaseAuth firebaseAuth = FirebaseAuth.instance;
   final _formKey = GlobalKey<FormState>();
-  UserServices _userServices = UserServices();
-  TextEditingController _emailTextController = TextEditingController();
-  TextEditingController _passwordTextController = TextEditingController();
-  TextEditingController _confirmPasswordController = TextEditingController();
-  TextEditingController _nameTextController = TextEditingController();
+  final UserServices _userServices = UserServices();
+  final TextEditingController _emailTextController = TextEditingController();
+  final TextEditingController _passwordTextController = TextEditingController();
+  final TextEditingController _confirmPasswordController = TextEditingController();
+  final TextEditingController _nameTextController = TextEditingController();
   late String store_name;
   bool hidePass=true;
   bool hidePass2=true;
@@ -31,7 +31,7 @@ class _SignUpState extends State<SignUp> {
       appBar: AppBar(
         backgroundColor: Colors.redAccent,
         centerTitle: true,
-        title: Text("Register", style: TextStyle(color: Colors.white),),
+        title: const Text("Register", style: TextStyle(color: Colors.white),),
         elevation: 0.8,
       ),
       body: Stack(
@@ -68,7 +68,7 @@ class _SignUpState extends State<SignUp> {
                             child: Padding(
                               padding: const EdgeInsets.only(left: 12.0),
                               child: TextFormField(
-                                decoration: InputDecoration(
+                                decoration: const InputDecoration(
                                   labelText: "Store Name *",
                                   hintText: "Your store name",
                                   icon: Icon(Icons.person),border: InputBorder.none,),
@@ -79,8 +79,9 @@ class _SignUpState extends State<SignUp> {
                                     return "The name cannot be empty";
                                   }
 
-                                  else
+                                  else {
                                     return null;
+                                  }
                                 },
                               ),
                             ),
@@ -96,7 +97,7 @@ class _SignUpState extends State<SignUp> {
                             child: Padding(
                               padding: const EdgeInsets.only(left: 12.0),
                               child: TextFormField(
-                                decoration: InputDecoration(
+                                decoration: const InputDecoration(
                                   labelText: "Email *",
                                   hintText: "someone@email.com",
                                   icon: Icon(Icons.email),border: InputBorder.none,),
@@ -104,11 +105,12 @@ class _SignUpState extends State<SignUp> {
                                 controller: _emailTextController,
                                 validator: (value){
                                   if(value!=null){
-                                    RegExp regex = new RegExp( r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$');
-                                    if(!regex.hasMatch(value))
+                                    RegExp regex = RegExp( r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$');
+                                    if(!regex.hasMatch(value)) {
                                       return 'Please enter correct email address';
-                                    else
+                                    } else {
                                       return null;
+                                    }
                                   }
                                 },
                               ),
@@ -126,7 +128,7 @@ class _SignUpState extends State<SignUp> {
                               padding: const EdgeInsets.only(left: 12.0),
                               child: ListTile(
                                 title: TextFormField(
-                                  decoration: InputDecoration(
+                                  decoration: const InputDecoration(
                                     labelText: "Password *",
                                     hintText: "Strong password",
                                     icon: Icon(Icons.lock_outlined),border: InputBorder.none,),
@@ -137,13 +139,14 @@ class _SignUpState extends State<SignUp> {
                                     if(value==null){
                                       return "The password cannot be empty";
                                     }
-                                    else if(value.length<6)
+                                    else if(value.length<6) {
                                       return "The password must be 6 characters long";
-                                    else
+                                    } else {
                                       return null;
+                                    }
                                   },
                                   ),
-                                  trailing: IconButton(icon: Icon(Icons.remove_red_eye), onPressed: () {setState((){
+                                  trailing: IconButton(icon: const Icon(Icons.remove_red_eye), onPressed: () {setState((){
                                     hidePass=!hidePass;
                                   });},),
                               ),
@@ -161,7 +164,7 @@ class _SignUpState extends State<SignUp> {
                               padding: const EdgeInsets.only(left: 12.0),
                               child: ListTile(
                                 title: TextFormField(
-                                  decoration: InputDecoration(
+                                  decoration: const InputDecoration(
                                     labelText: "Confirm Password *",
                                     hintText: "Strong password",
                                     icon: Icon(Icons.lock_outlined),
@@ -173,15 +176,18 @@ class _SignUpState extends State<SignUp> {
                                     if(value==null){
                                       return "The password cannot be empty";
                                     }
-                                    else if(value.length<6)
+                                    else if(value.length<6) {
                                       return "The password must be 6 characters long";
-                                    else if(_passwordTextController.text!=value)
+                                    }
+                                    else if(_passwordTextController.text!=value) {
                                       return "The Passwords do not match";
-                                    else
+                                    }
+                                    else {
                                       return null;
+                                    }
                                   },
                                 ),
-                                trailing: IconButton(icon: Icon(Icons.remove_red_eye), onPressed: () {
+                                trailing: IconButton(icon: const Icon(Icons.remove_red_eye), onPressed: () {
                                   setState((){
                                     hidePass=!hidePass2;
                                   });
@@ -202,7 +208,7 @@ class _SignUpState extends State<SignUp> {
                                   validateForm();
                                 },
                                 minWidth: MediaQuery.of(context).size.width,
-                                child: Text("Register", textAlign: TextAlign.center, style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16.0,),
+                                child: const Text("Register", textAlign: TextAlign.center, style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16.0,),
                                 ),
                               )
                           ),
@@ -215,7 +221,7 @@ class _SignUpState extends State<SignUp> {
                             onTap: (){
                               Navigator.pop(context);
                             },
-                            child: Text("Have an account? Login", textAlign: TextAlign.center, style: TextStyle(color: Colors.redAccent, fontSize: 14.0, fontWeight: FontWeight.w500),
+                            child: const Text("Have an account? Login", textAlign: TextAlign.center, style: TextStyle(color: Colors.redAccent, fontSize: 14.0, fontWeight: FontWeight.w500),
                             ),),
                         ),
 
@@ -230,7 +236,7 @@ class _SignUpState extends State<SignUp> {
               child: Container(
                 alignment: Alignment.center,
                 color: Colors.white.withOpacity(0.9),
-                child: CircularProgressIndicator(
+                child: const CircularProgressIndicator(
                   valueColor: AlwaysStoppedAnimation<Color>(Colors.red),
                 ),
               ),
@@ -246,7 +252,7 @@ class _SignUpState extends State<SignUp> {
 
     if(formState?.validate()!=null){
 
-      User? fireUser=await FirebaseAuth.instance.currentUser;
+      User? fireUser=FirebaseAuth.instance.currentUser;
       if(fireUser == null){
 
         firebaseAuth.createUserWithEmailAndPassword(

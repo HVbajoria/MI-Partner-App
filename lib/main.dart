@@ -16,7 +16,7 @@ void main() async{
       theme: ThemeData(
         primaryColor: Colors.deepOrangeAccent
       ),
-      home: Login()
+      home: const Login()
     )
   );
 }

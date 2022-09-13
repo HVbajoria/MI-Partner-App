@@ -22,9 +22,9 @@ class _LoginState extends State<Login> {
   final GoogleSignIn googleSignIn = GoogleSignIn();
   final FirebaseAuth firebaseAuth = FirebaseAuth.instance;
   final _formKey = GlobalKey<FormState>();
-  UserServices _userServices = UserServices();
-  TextEditingController _emailTextController = TextEditingController();
-  TextEditingController _passwordTextController = TextEditingController();
+  final UserServices _userServices = UserServices();
+  final TextEditingController _emailTextController = TextEditingController();
+  final TextEditingController _passwordTextController = TextEditingController();
   late SharedPreferences preferences;
   bool loading = false ;
   bool isLoggedin = false;
@@ -43,7 +43,7 @@ class _LoginState extends State<Login> {
     preferences=await SharedPreferences.getInstance();
     isLoggedin = await googleSignIn.isSignedIn();
     if(isLoggedin){
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> HomePage()));
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> const HomePage()));
     }
     setState(() {
       loading=false;
@@ -96,7 +96,7 @@ class _LoginState extends State<Login> {
       setState(() {
         loading=false;
       });
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> HomePage()));
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> const HomePage()));
     }
     else{
       Fluttertoast.showToast(msg: "Login Failed :(\nTry Again!");
@@ -119,7 +119,7 @@ class _LoginState extends State<Login> {
               isLoggedin = true;
             });
             Fluttertoast.showToast(msg: "Welcome! Start a new day");
-            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> HomePage()));
+            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> const HomePage()));
       } else {
         Fluttertoast.showToast(msg: "Account does not exist!\nPlease Check The Credentials");
       }
@@ -139,7 +139,7 @@ class _LoginState extends State<Login> {
       appBar: AppBar(
         backgroundColor: Colors.redAccent,
         centerTitle: true,
-        title: Text("Login", style: TextStyle(color: Colors.white),),
+        title: const Text("Login", style: TextStyle(color: Colors.white),),
         elevation: 0.8,
       ),
       body: Stack(
@@ -175,7 +175,7 @@ class _LoginState extends State<Login> {
                         child: Padding(
                           padding: const EdgeInsets.only(left: 12.0),
                           child: TextFormField(
-                            decoration: InputDecoration(
+                            decoration: const InputDecoration(
                               labelText: "Email *",
                             hintText: "someone@email.com",
                             icon: Icon(Icons.email),border: InputBorder.none,),
@@ -183,11 +183,12 @@ class _LoginState extends State<Login> {
                             controller: _emailTextController,
                             validator: (value){
                               if(value!=null){
-                                RegExp regex = new RegExp( r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$');
-                                if(!regex.hasMatch(value))
+                                RegExp regex = RegExp( r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$');
+                                if(!regex.hasMatch(value)) {
                                   return 'Please enter correct email address';
-                                else
+                                } else {
                                   return null;
+                                }
                               }
                             },
                           ),
@@ -205,7 +206,7 @@ class _LoginState extends State<Login> {
                       padding: const EdgeInsets.only(left: 12.0),
                       child: ListTile(
                         title: TextFormField(
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                             labelText: "Password *",
                             hintText: "Strong password",
                             icon: Icon(Icons.lock_outlined),border: InputBorder.none,),
@@ -216,13 +217,14 @@ class _LoginState extends State<Login> {
                             if(value==null){
                               return "The password cannot be empty";
                               }
-                            else if(value.length<6)
+                            else if(value.length<6) {
                               return "The password must be 6 characters long";
-                            else
-                            return null;
+                            } else {
+                              return null;
+                            }
                             },
                         ),
-                        trailing: IconButton(icon: Icon(Icons.remove_red_eye), onPressed: () {setState((){
+                        trailing: IconButton(icon: const Icon(Icons.remove_red_eye), onPressed: () {setState((){
                           hidePass=!hidePass;
                         });},),
                       ),
@@ -241,13 +243,13 @@ class _LoginState extends State<Login> {
                         handleSignInEmail();
                       },
                       minWidth: MediaQuery.of(context).size.width,
-                      child: Text("Login", textAlign: TextAlign.center, style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16.0,),
+                      child: const Text("Login", textAlign: TextAlign.center, style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16.0,),
                       ),
                     )
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
+                const Padding(
+                  padding: EdgeInsets.all(8.0),
                   child: Text("Forgot Password", textAlign: TextAlign.center, style: TextStyle(fontWeight: FontWeight.w500, color: Colors.white),),
                 ),
 
@@ -255,15 +257,15 @@ class _LoginState extends State<Login> {
                   padding: const EdgeInsets.fromLTRB(10.0, 15.0, 20.0, 20.0),
                   child: InkWell(
                       onTap: (){
-                        Navigator.push(context, MaterialPageRoute(builder: (context)=> SignUp()));
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=> const SignUp()));
                       },
-                      child: Text("Sign Up", style: TextStyle(color: Colors.redAccent, fontSize: 14.0, fontWeight: FontWeight.w500),
+                      child: const Text("Sign Up", style: TextStyle(color: Colors.redAccent, fontSize: 14.0, fontWeight: FontWeight.w500),
                   ),),
                 ),
 
                 Divider(color: Colors.deepOrangeAccent.withOpacity(0.7),),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
+                const Padding(
+                  padding: EdgeInsets.all(8.0),
                   child: Text("Other Sign In Options", style: TextStyle(color: Colors.white70, fontWeight: FontWeight.w600)),
                 ),
                 Padding(
@@ -278,7 +280,7 @@ class _LoginState extends State<Login> {
                         },
 
                         minWidth: MediaQuery.of(context).size.width,
-                        child: Text("Sign In With Google", textAlign: TextAlign.center, style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 14.0,),
+                        child: const Text("Sign In With Google", textAlign: TextAlign.center, style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 14.0,),
                         ),
                       )
                   ),
@@ -294,7 +296,7 @@ class _LoginState extends State<Login> {
                 child: Container(
                   alignment: Alignment.center,
                 color: Colors.white.withOpacity(0.9),
-                child: CircularProgressIndicator(
+                child: const CircularProgressIndicator(
                   valueColor: AlwaysStoppedAnimation<Color>(Colors.red),
                 ),
               ),

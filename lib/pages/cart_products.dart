@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:mi_partner_app/pages/paymentdetails.dart';
-import 'package:mi_partner_app/pages/payments.dart';
 
 class Cart_products extends StatefulWidget {
   var product_name;
@@ -63,19 +62,19 @@ class _Cart_productsState extends State<Cart_products> {
     }
 
     for (var index=0;index<Products_on_the_cart.length;index++) {
-      this.total = this.total +
+      total = total +
           int.parse(Products_on_the_cart[index]["quantity"].toString()) *
               int.parse(Products_on_the_cart[index]["price"].toString());
-      print(total);
+
     }
-print("hello");
+
     return Scaffold(
       appBar: AppBar(
           elevation: 0.3,
           backgroundColor: Colors.deepOrangeAccent,
-          title: Text('Cart'),
+          title: const Text('Cart'),
           actions: <Widget>[
-            IconButton(icon: Icon(Icons.search, color: Colors.white), onPressed: (){}),
+            IconButton(icon: const Icon(Icons.search, color: Colors.white), onPressed: (){}),
           ]
       ),
       body: ListView.builder(
@@ -98,7 +97,7 @@ print("hello");
         child: Row(
           children: <Widget>[
             Expanded(child: ListTile(
-              title: Text("Total Amount:"),
+              title: const Text("Total Amount:"),
 
               subtitle: Text("Rs ${total}"),
             )),
@@ -117,7 +116,7 @@ print("hello");
                           )));
                     },
                     minWidth: MediaQuery.of(context).size.width,
-                    child: Text("Check Out", textAlign: TextAlign.center, style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16.0,),
+                    child: const Text("Check Out", textAlign: TextAlign.center, style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16.0,),
                     ),
                   )
               ),
@@ -165,25 +164,25 @@ class Single_cart_product extends StatelessWidget {
               children: <Widget>[
 
                 // ============= for model name =============
-                Padding(
-                  padding: const EdgeInsets.all(0.7),
+                const Padding(
+                  padding: EdgeInsets.all(0.7),
                   child: Text("Model:", style: TextStyle(fontWeight: FontWeight.bold, color:Colors.black45, fontSize: 12.0)),
                 ),
 
                 Padding(
                   padding: const EdgeInsets.fromLTRB(5.0, 8.0, 23.0, 8.0),
-                  child: Text(cart_model, style: TextStyle(color: Colors.red,fontSize: 10.0),),
+                  child: Text(cart_model, style: const TextStyle(color: Colors.red,fontSize: 10.0),),
                 ),
 
                 // ============= for color ============
-                Padding(
-                  padding: const EdgeInsets.all(0.2),
+                const Padding(
+                  padding: EdgeInsets.all(0.2),
                   child: Text("Color:", style: TextStyle(fontWeight: FontWeight.bold, color:Colors.black45, fontSize: 12.0)),
                 ),
                 Expanded(child:
                 Padding(
                   padding: const EdgeInsets.fromLTRB(5.0, 8.0, 23.0, 8.0),
-                  child: Text(cart_color, style: TextStyle(color: Colors.red,fontSize: 10.0)),
+                  child: Text(cart_color, style: const TextStyle(color: Colors.red,fontSize: 10.0)),
                 )),
               ],
             ),
@@ -191,15 +190,15 @@ class Single_cart_product extends StatelessWidget {
             // ========== PRODUCT PRICE ================
             Container(
               alignment: Alignment.topLeft,
-              child: Text("Rs${cart_price}", style:TextStyle(fontSize: 14.0, fontWeight: FontWeight.bold,
+              child: Text("Rs$cart_price", style:const TextStyle(fontSize: 14.0, fontWeight: FontWeight.bold,
               color: Colors.red,)),
             )
           ],
         ),
         trailing: Column(
           children: <Widget>[
-            Text("Qty:", style: TextStyle(fontSize: 12.0)),
-            Text("$cart_qty", style: TextStyle(fontSize: 12.0)),
+            const Text("Qty:", style: TextStyle(fontSize: 12.0)),
+            Text("$cart_qty", style: const TextStyle(fontSize: 12.0)),
           ],
         ),
       ),
