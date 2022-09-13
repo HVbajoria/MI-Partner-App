@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "987620378448",
+    "firebase_url": "https://mi-partner-app-default-rtdb.firebaseio.com",
+    "project_id": "mi-partner-app",
+    "storage_bucket": "mi-partner-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:987620378448:android:cb9efcf52816f5353a4e55",
+        "android_client_info": {
+          "package_name": "com.example.mi_partner_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "987620378448-tb196skf4cvsnthapbkgg5vpebnojj50.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.mi_partner_app",
+            "certificate_hash": "4bd0001b6e0ef54e3b2cbb92809353b637fecfe0"
+          }
+        },
+        {
+          "client_id": "987620378448-bilj63lsgje9v2f78b88050upsp6ptru.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBRxTgYuTBA0JFDEypvTBEfaHjIXNCRqIM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "987620378448-bilj63lsgje9v2f78b88050upsp6ptru.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "987620378448-nh6t0h1v43cgart7h4auh47hpctt5rgq.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.miPartnerApp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
