@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../pages/comingsoon.dart';
+
 class HorizontalList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -39,7 +41,9 @@ class Category extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(padding: const EdgeInsets.all(2.0),
-    child: InkWell(onTap: (){},
+    child: InkWell(onTap: (){
+      Navigator.push(context, MaterialPageRoute(builder: (context)=> new ComingSoon()));
+    },
     child: Container(
       width: 130.0,
       child: ListTile(
