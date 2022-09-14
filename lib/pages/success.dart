@@ -88,7 +88,7 @@ class _SuccessState extends State<Success> {
                       supplier: Supplier(
                         name: 'Xiaomi Stores Inc.',
                         address: '12, Park Street, Kolkata - 700012',
-                        paymentInfo: "Google Pay",
+                        paymentInfo: widget.payment,
                         deliveryInfo: widget.delivery,
                         phone: '+917654321543',
                       ),
@@ -112,7 +112,7 @@ class _SuccessState extends State<Success> {
                     PdfApi.openFile(pdfFile);
                   },
 
-                  child: const Text("Generate PDF", textAlign: TextAlign.center, style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16.0,),
+                  child: const Text("Generate Invoice", textAlign: TextAlign.center, style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16.0,),
                   ),
                 )
             ),
