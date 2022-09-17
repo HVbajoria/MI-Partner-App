@@ -2,7 +2,7 @@
     package="com.example.mi_partner_app">
    <application
         android:label="MI Partner"
-       android:name="androidx.multidex.MultiDexApplication" >
+       android:name="androidx.multidex.MultiDexApplication" 
         android:icon="@mipmap/launcher_icon">
         <activity
             android:name=".MainActivity"
