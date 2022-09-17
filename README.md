@@ -62,6 +62,9 @@ There are two ways by which this app can be installed and used. ( Currently supp
 
 ## App Demo Video Link: 
 
+## Sample Images: 
+Please go to App Images folder.
+
 ## Methodology :
 The methodology for the store executive will work in the following way to allow the smooth flow of the steps and allow him/her to give the best customer experience to its customers along with the opportunities to increase its sales as much as possible by providing the right and most-worked suggestions.
 
